@@ -1,0 +1,4 @@
+name: SingleDungeon
+version: '${project.version}'
+main: cz.gennario.singledungeon.Main
+api-version: 1.18

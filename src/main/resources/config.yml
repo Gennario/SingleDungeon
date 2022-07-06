@@ -1,0 +1,65 @@
+messages:
+  prepare:
+    title: '<G:#de1b1b>&l〠 %name% DUNGEON 〠</G:#ff6f5c>'
+    subtitle: '&fYou have %prepare_time% seconds to prepare!'
+    messages:
+      - '&fWelcome <S:ffa79c>%player% &fin the <S:ffa79c>%name% dungeon&f!'
+      - '<S:ff7563>You have %prepare_time% seconds to prepare!'
+  start: '<S:ff7563>Dungeon starting!'
+  wave: '&fSpawning <S:ffa79c>wave %wave%&f!'
+  win: '&fDungeon defeated, <S:ff7563>you WIN&f!'
+  lose: '&fThe mob killed you, <S:ff7563>you LOSE&f in wave %wave%!'
+
+rooms:
+  example:
+    spawn-location: world(377.5,92,-11.5)
+    mob-spawn-location: world(377.5,92,-11.5)
+    prepare-time: 30 # in seconds
+    start-commands:
+      - 'say %player% started dungeon Example'
+    lose-commands:
+      - 'say %player% death in the Example dungeon'
+    win-commands:
+      - 'say %player% has won in the Example dungeon'
+    waves:
+      '1':
+        name: I
+        gangs:
+          - 'example'
+      '2':
+        name: II
+        gangs:
+          - 'example2'
+
+gangs:
+  example:
+    name: 'Funny gang'
+    mobs:
+      zombies:
+        amount: 5
+        type: ZOMBIE
+        name: '&eFunny zombie'
+        health: 25.0
+        damage: 2.5
+        helmet:
+          material: LEATHER_HELMET
+          enchants:
+            - PROTECTION_ENVIRONMENTAL;2
+          unbreakable: true
+        chestplate:
+          material: LEATHER_HELMET
+          enchants:
+            - PROTECTION_ENVIRONMENTAL;2
+          unbreakable: true
+        rightHand:
+          material: WOODEN_SWORD
+          unbreakable: true
+  example2:
+    name: 'NotFunny gang'
+    mobs:
+      zombies:
+        amount: 2
+        type: ZOMBIE
+        name: '&cNotFunny zombie'
+        health: 50.0
+        damage: 6.5
