@@ -1,10 +1,9 @@
-# SingleDungeon
+# 〠 SingleDungeon 〠
 Application project for DevRoom
-
 Version: 1.18.2 only
 
 ## Commands
-/start \<dungeon-id\>
+/start *\<dungeon-id\>*
 
 ## Ingame screenshots
 ![obrazek](https://user-images.githubusercontent.com/48251906/177514847-b3e5c1d3-5a3d-43c5-b4aa-7c527285d311.png)
