@@ -1,5 +1,6 @@
 package cz.gennario.singledungeon;
 
+import cz.gennario.singledungeon.commands.StartCommand;
 import cz.gennario.singledungeon.system.DungeonGame;
 import cz.gennario.singledungeon.system.DungeonGang;
 import cz.gennario.singledungeon.system.DungeonMob;
@@ -46,15 +47,7 @@ public final class Main extends JavaPlugin {
         gameMobs = new ArrayList<>();
 
         Bukkit.getPluginManager().registerEvents(new Events(), this);
-
-        new BukkitRunnable(){
-            @Override
-            public void run() {
-                for (Player player : Bukkit.getOnlinePlayers()) {
-                    new DungeonGame(player, roomMap.get("example"));
-                }
-            }
-        }.runTaskLater(this, 60);
+        getCommand("start").setExecutor(new StartCommand());
     }
 
     @Override

@@ -14,7 +14,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class Events implements Listener {
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.NORMAL)
     public void onTarget(EntityTargetEvent event) {
         if (!Main.getInstance().getGameMobs().isEmpty()) {
             if (Main.getInstance().getGameMobs().contains(event.getEntity().getEntityId())) {
@@ -28,10 +28,9 @@ public class Events implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.NORMAL)
     public void onHit(EntityDamageByEntityEvent event) {
-        if (event.getDamager() instanceof Player) {
-            Player player = (Player) event.getDamager();
+        if (event.getDamager() instanceof Player player) {
             if (Main.getInstance().getGameMobs().contains(event.getEntity().getEntityId())) {
                 if (Main.getInstance().getGameMap().containsKey(player)) {
                     DungeonGame game = Main.getInstance().getGameMap().get(player);
@@ -45,31 +44,30 @@ public class Events implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.NORMAL)
     public void onKill(EntityDeathEvent event) {
-        if (event.getEntity() instanceof Monster) {
+        if (event.getEntity() instanceof Monster monster) {
             if (event.getEntity().getKiller() != null) {
                 Player player = event.getEntity().getKiller();
-                if (Main.getInstance().getGameMobs().contains(event.getEntity().getEntityId())) {
+                if (Main.getInstance().getGameMobs().contains(monster.getEntityId())) {
                     if (Main.getInstance().getGameMap().containsKey(player)) {
                         DungeonGame game = Main.getInstance().getGameMap().get(player);
 
-                        game.getMobs().remove((Object) event.getEntity().getEntityId());
+                        game.getMobs().remove((Object) monster.getEntityId());
                         game.checkNextWave();
-                        Main.getInstance().getGameMobs().remove((Object) event.getEntity().getEntityId());
+                        Main.getInstance().getGameMobs().remove((Object) monster.getEntityId());
                     }
                 }
-            } else if (Main.getInstance().getGameMobs().contains(event.getEntity().getEntityId())) {
+            } else if (Main.getInstance().getGameMobs().contains(monster.getEntityId())) {
                 for (DungeonGame game : Main.getInstance().getGameMap().values()) {
-                    if (game.getMobs().contains(event.getEntity().getEntityId())) {
-                        game.getMobs().remove((Object) event.getEntity().getEntityId());
+                    if (game.getMobs().contains(monster.getEntityId())) {
+                        game.getMobs().remove((Object) monster.getEntityId());
                         game.checkNextWave();
-                        Main.getInstance().getGameMobs().remove((Object) event.getEntity().getEntityId());
+                        Main.getInstance().getGameMobs().remove((Object) monster.getEntityId());
                     }
                 }
             }
-        } else if (event.getEntity() instanceof Player) {
-            Player player = (Player) event.getEntity();
+        } else if (event.getEntity() instanceof Player player) {
             if (Main.getInstance().getGameMobs().contains(event.getEntity().getEntityId())) {
                 if (Main.getInstance().getGameMap().containsKey(player)) {
                     DungeonGame game = Main.getInstance().getGameMap().get(player);
@@ -79,7 +77,7 @@ public class Events implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.NORMAL)
     public void onPlayerKill(PlayerDeathEvent event) {
         Player player = event.getEntity();
         if (Main.getInstance().getGameMap().containsKey(player)) {
@@ -88,7 +86,7 @@ public class Events implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
+    @EventHandler(priority = EventPriority.NORMAL)
     public void onQuit(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         if (Main.getInstance().getGameMap().containsKey(player)) {

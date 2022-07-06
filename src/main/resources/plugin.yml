@@ -2,3 +2,12 @@ name: SingleDungeon
 version: '${project.version}'
 main: cz.gennario.singledungeon.Main
 api-version: 1.18
+softdepend:
+  - PladceholderAPI
+commands:
+  start:
+    description: Dungeon start command
+    aliases:
+      - dungeonstart
+      - d-start
+      - dungeon-start

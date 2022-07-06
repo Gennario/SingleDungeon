@@ -1,14 +1,22 @@
 messages:
   prepare:
-    title: '<G:#de1b1b>&l〠 %name% DUNGEON 〠</G:#ff6f5c>'
+    title: '<G:#fc1c1c>&l〠 %name% DUNGEON 〠</G:#ff6f5c>'
     subtitle: '&fYou have %prepare_time% seconds to prepare!'
     messages:
-      - '&fWelcome <S:ffa79c>%player% &fin the <S:ffa79c>%name% dungeon&f!'
-      - '<S:ff7563>You have %prepare_time% seconds to prepare!'
-  start: '<S:ff7563>Dungeon starting!'
-  wave: '&fSpawning <S:ffa79c>wave %wave%&f!'
-  win: '&fDungeon defeated, <S:ff7563>you WIN&f!'
-  lose: '&fThe mob killed you, <S:ff7563>you LOSE&f in wave %wave%!'
+      - '&r'
+      - '&r'
+      - '<center><G:#fc1c1c>&l〠 %name% DUNGEON 〠</G:#ff6f5c>'
+      - '&r'
+      - '<center>&fWelcome <S:ffa79c>%player% &fin the <S:ffa79c>%name% dungeon&f!'
+      - '<center><S:ff7563>You have %prepare_time% seconds to prepare!'
+      - '&r'
+      - '&r'
+      - '&r'
+  start: '<S:fc1c1c>〠 | <S:ff7563>Dungeon starting!'
+  wave: '<S:fc1c1c>〠 | &fSpawning <S:ffa79c>wave %wave%&f!'
+  win: '<S:fc1c1c>〠 | &fDungeon defeated, <S:ff7563>you WIN&f!'
+  lose: '<S:fc1c1c>〠 | &fThe mob killed you, <S:ff7563>you LOSE&f in wave %wave%!'
+  usage: '<S:fc1c1c>〠 | &fUse: <S:ff7563>/start <room-id>'
 
 rooms:
   example:
